@@ -129,6 +129,11 @@ function video(url,xsize,ysize) {
 	send("msg",{"type":"vid","content":content,"xsize":xsize,"ysize":ysize});
 }
 
+function nick(nickname) {
+	var content = pass + "-" + nickname;
+	send("nick",{"content":content});
+}
+
 function loginreq() {
     var name = prompt("Name");
     if (name.includes(";") | name.includes("$")) {
