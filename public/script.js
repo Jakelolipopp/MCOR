@@ -319,7 +319,7 @@ function showUpload(){
         visibility = 'hidden'
     }
 	document.getElementById("upload").style.visibility = visibility;
-    document.getElementById("upload").hidden = setMHidden;
+    document.getElementById("upload").hidden = setUHidden;
 }
 
 send("fst");
