@@ -1,0 +1,19 @@
+{
+  "name": "mcor",
+  "version": "1.0.0",
+  "description": "mycock.org reborn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jakelolipopp/MCOR.git"
+  },
+  "author": "Jakelolipopp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jakelolipopp/MCOR/issues"
+  },
+  "homepage": "https://github.com/Jakelolipopp/MCOR#readme"
+}
