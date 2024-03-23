@@ -130,8 +130,8 @@ function video(url,xsize,ysize) {
 }
 
 function nick(nickname) {
-	var content = pass + "-" + nickname;
-	send("nick",{"content":content});
+	var content = pass;
+	send("nick",{"content":content, "name":nickname});
 }
 
 function loginreq() {
