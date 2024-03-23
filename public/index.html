@@ -26,6 +26,13 @@
             <span></span>
             Settings
         </div>
+        <div class="button" style="display: inline-block;" onclick="showUpload();">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Upload
+        </div>
         <div class="button" style="display: inline-block;" onclick="more();">
             <span></span>
             <span></span>
@@ -50,9 +57,15 @@
             </div>
 
 		</div>
+        <br>
+        <div hidden style="visibility: hidden; margin-left: 45px; width: fit-content;" id="upload" class="gradient-border">
+            <p>File upload:</p>
+            <iframe src="https://example.com/" frameborder="0"></iframe>
+
+		</div>
         
         <br>
-        <a href="https://upload.mycock.org/">Upload Files</a>
+        <a href="/up">Upload Files</a>
         <br>
         <div id="msgbuttons" hidden>
             <div class="button" style="margin-left: 0px;display: inline-block;" onclick='msg(prompt("message"));'>

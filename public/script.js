@@ -67,6 +67,7 @@ var rand;
 var devmode = false;
 var setHidden = true;
 var setMHidden = true;
+var setUHidden = true;
 var chatcount = 0;
 
 send("ping");
@@ -309,6 +310,16 @@ function more() {
     }
 	document.getElementById("more").style.visibility = visibility;
     document.getElementById("more").hidden = setMHidden;
+}
+
+function showUpload(){
+	setUHidden = !setUHidden;
+    visibility = 'visible'
+    if (setMHidden) {
+        visibility = 'hidden'
+    }
+	document.getElementById("upload").style.visibility = visibility;
+    document.getElementById("upload").hidden = setMHidden;
 }
 
 send("fst");
