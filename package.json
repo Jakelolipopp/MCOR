@@ -1,19 +1,18 @@
 {
-  "name": "mcor",
+  "name": "app",
   "version": "1.0.0",
-  "description": "mycock.org reborn",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jakelolipopp/MCOR.git"
-  },
   "author": "Jakelolipopp",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Jakelolipopp/MCOR/issues"
-  },
-  "homepage": "https://github.com/Jakelolipopp/MCOR#readme"
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-fileupload": "^1.3.1",
+    "fs": "^0.0.1-security",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
 }

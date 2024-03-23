@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>
+            hiii
+        </title>
+        <script src="script.js">  
+        </script>
+		<link rel="stylesheet" href="style.css">
+    </head>
+    <body style="background-color: rgb(172, 48, 151);" id="bg">
+        <button onclick="loginreq();">Login</button>
+		<button onclick="gene();">GEN</button>
+		<button onclick="settings();">Settings</button>
+		<div hidden=true id="settings">
+			<input type="color" id="bgcolor" onchange="document.getElementById('bg').style = 'background-color: ' + document.getElementById('bgcolor').value + ';';" value="#000000">
+		</div>
+        <p id="ping"></p>
+		<a href="https://upload.mycock.org">Upload Files</a>
+		<a href="https://webmail.mycock.org">Email :D</a>
+        <button onclick="msg(prompt('msg'));" hidden=true id="msgbox">Send message</button>
+		<button onclick="more();">Toggle more options</button>
+		<div hidden=true>
+			<button>iframe</button>
+			<button>Uploaded File</button>
+		</div>
+        <h1>hi</h1>
+        <p id="chat"></p>
+		<img src="cock.jpg">
+    </body>
+</html>
