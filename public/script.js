@@ -315,7 +315,7 @@ function more() {
 function showUpload(){
 	setUHidden = !setUHidden;
     visibility = 'visible'
-    if (setMHidden) {
+    if (setUHidden) {
         visibility = 'hidden'
     }
 	document.getElementById("upload").style.visibility = visibility;
