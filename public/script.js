@@ -37,7 +37,7 @@ function handle(data) {
             break;
         
         case "loginfailed":
-			alert("login failed");
+			alert(data.content);
             break;
 
         case "loginrand":
@@ -151,7 +151,7 @@ function loginreq() {
     pass = sha256(prompt("Password"));
 	if(devmode)
 		console.log(sha256(pass + name));
-    console.log("Sending login request... (" + sha256(sha256(pass + name) + time()) + ")");
+    console.log("Sending login request... (" + sha256(sha256(pass + name) + time()) + ") time: " + time());
     send('loginreq',sha256(sha256(pass + name) + time()));
 }
 
