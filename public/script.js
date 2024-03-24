@@ -331,3 +331,20 @@ function resizeIframe(iframe) {
   }
   
 send("fst");
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 768) {
+        // Select all elements in the body
+        const elements = document.body.getElementsByTagName('*');
+
+        // Loop through each element and apply a scale transformation
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.transform = 'scale(3)';
+            elements[i].style.transformOrigin = 'top left';
+        }
+    }
+});
