@@ -337,7 +337,7 @@ send("fst");
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth < window.innerHeight) {
         // Select all elements in the body
         const elements = document.body.getElementsByTagName('*');
 
