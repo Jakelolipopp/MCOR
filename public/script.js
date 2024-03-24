@@ -322,4 +322,9 @@ function showUpload(){
     document.getElementById("upload").hidden = setUHidden;
 }
 
+
+function resizeIframe(iframe) {
+    iframe.height = iframe.contentWindow.document.documentElement.scrollHeight + "px";
+  }
+  
 send("fst");
