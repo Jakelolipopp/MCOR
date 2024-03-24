@@ -28,6 +28,7 @@ p {
 .button {
     position: relative;
     width: fit-content;
+    overflow: hidden;
     padding: 10px 10px;
     border-radius: 3px;
     color: #8860e6;
@@ -268,4 +269,8 @@ h1 {
 
 h2 {
     color: #03e9f4;
+}
+
+.username {
+    color: #a32323;
 }
