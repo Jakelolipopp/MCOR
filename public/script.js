@@ -24,6 +24,7 @@ function time() {
 }
 
 function handle(data) {
+    resizeIframe(iframe);
     switch (data.data) {
         case "pong":
             ping(data);
@@ -69,6 +70,7 @@ var setHidden = true;
 var setMHidden = true;
 var setUHidden = true;
 var chatcount = 0;
+var iframe;
 
 send("ping");
 
