@@ -263,11 +263,8 @@ h1 {
     text-decoration: none;
     transition: 0.5s;
     letter-spacing: 2px;
-    overflow: hidden;
-    margin-right: 50px;
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
-    transform: scale(0.9);
 }
 
 h2 {

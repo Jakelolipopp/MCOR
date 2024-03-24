@@ -333,12 +333,19 @@ function resizeIframe(iframe) {
 send("fst");
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth < window.innerHeight * 1.5) {
-        const elements = document.querySelectorAll('div');
-
+    if (window.innerWidth*1.5 < window.innerHeight) {
+        let elements = document.querySelectorAll('h1');
         elements.forEach(function(el) {
             style = el.style
-            
+            style.textAlign = 'center';
+            style.transform = 'scale(3)';
         });
+
+        elements = document.getElementsByClassName('button');
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.transformOrigin = 'top left';
+            elements[i].style.width = '40%';
+            elements[i].style.height = '4em';
+        }
     }
 });
