@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 elements[i].style.width = '40%';
                 elements[i].style.height = '4em';
             }
+            elements[i].style.overflow = 'shown';
             elements[i].style.fontSize = '3em';
         }
     }
