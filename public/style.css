@@ -272,12 +272,5 @@ h1 {
 
 h2 {
     color: #03e9f4;
-    text-decoration: none;
-    transition: 0.5s;
-    letter-spacing: 2px;
-    overflow: hidden;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    transform: scale(0.9);
 }
 
