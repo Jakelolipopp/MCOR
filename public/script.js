@@ -38,6 +38,7 @@ function handle(data) {
         
         case "loginfailed":
 			alert(data.content);
+            console.log(data);
             break;
 
         case "loginrand":
