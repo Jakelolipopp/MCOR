@@ -320,7 +320,7 @@ function showUpload(){
     visibility = 'visible'
     if (setUHidden) {
         visibility = 'hidden'
-        document.getElementById("uploadFrame").src = document.getElementById("uploadFrame").src;
+        document.getElementById("uploadframe").src = document.getElementById("uploadframe").src;
     }
 	document.getElementById("upload").style.visibility = visibility;
     document.getElementById("upload").hidden = setUHidden;
