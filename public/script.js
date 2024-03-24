@@ -333,14 +333,12 @@ function resizeIframe(iframe) {
 send("fst");
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth < window.innerHeight) {
-        // Select all elements in the body
-        const elements = document.body.getElementsByTagName('*');
+    if (window.innerWidth < window.innerHeight * 1.5) {
+        const elements = document.querySelectorAll('div');
 
-        // Loop through each element and apply a scale transformation
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].style.transform = 'scale(3)';
-            elements[i].style.transformOrigin = 'top left';
-        }
+        elements.forEach(function(el) {
+            style = el.style
+            
+        });
     }
 });
