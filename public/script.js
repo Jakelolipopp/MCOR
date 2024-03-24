@@ -17,7 +17,7 @@ var serverStart = 0;
 function time() {
     var date = "";
     var now = Date.now() + "";
-    for (let i1 = 0; i1 < 8; i1++) {
+    for (let i1 = 0; i1 < 7; i1++) {
         date += now[i1];
     }
     return date;
