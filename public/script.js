@@ -345,8 +345,8 @@ document.addEventListener('DOMContentLoaded', function() {
         elements = document.getElementsByClassName('button');
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.transformOrigin = 'top left';
-            elements[i].style.width = '40%';
             if (!elements[i].classList.contains('chatbox')) {
+                elements[i].style.width = '40%';
                 elements[i].style.height = '4em';
             }
             elements[i].style.fontSize = '3em';
