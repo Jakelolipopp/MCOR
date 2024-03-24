@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
             elements[i].style.transformOrigin = 'top left';
             elements[i].style.width = '40%';
             elements[i].style.height = '4em';
+            elements[i].innerHTML = '<h2 >' + elements[i].innerHTML + '</h2>';
         }
     }
 });
