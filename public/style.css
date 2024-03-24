@@ -1,276 +1,94 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 
-*{
-    margin: 0;
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
-  background: #0a000f;
+    margin: 0;
+    padding: 0;
+    background: #0a000f;
+    font-family: 'Roboto', sans-serif;
+    color: #03e9f4;
 }
 
-p {
-    color: #03e9f4; 
-    font: 1em sans-serif;
+p, h1, h2 {
+    margin: 0.5em 0;
+    padding: 0 1em;
+    font-family: 'Raleway', sans-serif;
 }
 
-.box {
-    position: relative;
-    display: inline-block;
+.button, .gradient-border, .box {
+    margin: 0.5em;
     border-radius: 3px;
-    text-decoration: none;
     overflow: hidden;
-    margin: 25px;
-    border: 2px solid #d2bdff;
-    margin: 0 auto;
+    display: block;
+    width: auto;
 }
 
 .button {
-    position: relative;
-    width: fit-content;
-    padding: 10px 10px;
-    border-radius: 3px;
-    color: #8860e6;
-    text-decoration: none;
-    overflow: hidden;
-    margin: 25px;
-    font-family: "Roboto", sans-serif;
-    filter: hue-rotate(0deg);
+    padding: 10px;
     border: 2px solid #d2bdff;
-    transition: all 0.1s linear;
-}
-.button:hover {
-    border: 1px solid transparent;
-}
-.button:hover span {
-    position: absolute;
-    display: block;
-}
-.button:hover span:nth-child(1) {
-    filter: hue-rotate(0deg);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #3a86ff);
-    animation: animate1 1s linear infinite;
-}
-@keyframes animate1 {
-    0% {
-        left: -100%;
-   }
-    50%, 100% {
-        left: 100%;
-   }
-}
-.button:hover span:nth-child(2) {
-    filter: hue-rotate(60deg);
-    top: -100%;
-    right: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, #3a86ff);
-    animation: animate2 1s linear infinite;
-    animation-delay: 0.25s;
-}
-@keyframes animate2 {
-    0% {
-        top: -100%;
-   }
-    50%, 100% {
-        top: 100%;
-   }
-}
-.button:hover span:nth-child(3) {
-    filter: hue-rotate(120deg);
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    background: linear-gradient(270deg, transparent, #3a86ff);
-    animation: animate3 1s linear infinite;
-    animation-delay: 0.5s;
-}
-@keyframes animate3 {
-    0% {
-        right: -100%;
-        height: 3px;
-   }
-    50%, 100% {
-        height: 2px;
-        right: 100%;
-   }
-}
-.button:hover span:nth-child(4) {
-    filter: hue-rotate(300deg);
-    bottom: -100%;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, #3a86ff);
-    animation: animate4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-@keyframes animate4 {
-    0% {
-        bottom: -100%;
-   }
-    50%, 100% {
-        bottom: 100%;
-   }
-}
-
-
-
-a{
     position: relative;
-    display: inline-block;
-    padding: 25px 30px;
-    margin: 40px 0;
-    color: #03e9f4;
-    text-decoration: none;
-    transition: 0.5s;
-    letter-spacing: 4px;
-    overflow: hidden;
-    margin-right: 50px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    transform: scale(0.9);
+    text-align: center;
 }
 
-a:hover{
-    background: #03e9f4;
-    color: #050801;
-    box-shadow: 0 0 5px #03e9f4,
-                0 0 25px #03e9f4,
-                0 0 50px #03e9f4,
-                0 0 200px #03e9f4;
-     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+.button span {
+    display: none; /* Hide the animated spans on mobile for simplicity */
 }
-a:nth-child(1){
-    filter: hue-rotate(270deg);
+
+.gradient-border, .box {
+    padding: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
-a:nth-child(2){
-    filter: hue-rotate(110deg);
-}
-a span{
-    position: absolute;
+
+input[type="file"], input[type="text"], input[type="submit"] {
     display: block;
-}
-a span:nth-child(1){
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg,transparent,#03e9f4);
-    animation: animate1 1s linear infinite;
-}
-@keyframes animate1{
-    0%{
-        left: -100%;
-    }
-    50%,100%{
-        left: 100%;
-    }
-}
-a span:nth-child(2){
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg,transparent,#03e9f4);
-    animation: animate2 1s linear infinite;
-    animation-delay: 0.25s;
-}
-@keyframes animate2{
-    0%{
-        top: -100%;
-    }
-    50%,100%{
-        top: 100%;
-    }
-}
-a span:nth-child(3){
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg,transparent,#03e9f4);
-    animation: animate3 1s linear infinite;
-    animation-delay: 0.50s;
-}
-@keyframes animate3 {
-    0% {
-        right: -100%;
-        height: 3px;
-   }
-    50%, 100% {
-        height: 2px;
-        right: 100%;
-   }
+    margin: 1em auto;
 }
 
-
-
-a span:nth-child(4){
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg,transparent,#03e9f4);
-    animation: animate4 1s linear infinite;
-    animation-delay: 0.75s;
-}
-@keyframes animate4{
-    0%{
-        bottom: -100%;
+/* Responsive Design Adjustments */
+@media (min-width: 768px) {
+    .button, .gradient-border, .box {
+        display: inline-block;
     }
-    50%,100%{
-        bottom: 100%;
+
+    .button span {
+        display: block; /* Re-enable animated spans on wider screens */
+    }
+
+    .button, .gradient-border, .box {
+        margin: 25px;
     }
 }
 
+@media (max-width: 767px) {
+    body, p, h1, h2 {
+        padding: 0.5em;
+    }
 
-.gradient-border {
-    --border-width: 3px;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-    background: #222;
-    border-radius: var(--border-width);
+    .button, .gradient-border, .box {
+        width: calc(100% - 2em); /* Adjust width to ensure padding */
+    }
+
+    .button {
+        padding: 10px 5px; /* Reduce padding on smaller screens */
+    }
+    
+    input[type="file"], input[type="text"], input[type="submit"] {
+        width: 90%; /* Make inputs wider to fit mobile screens */
+    }
 }
+
+/* Gradient Border Animation */
 .gradient-border::after {
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
     animation: moveGradient 4s alternate infinite;
 }
+
 @keyframes moveGradient {
     50% {
         background-position: 100% 50%;
-   }
+    }
 }
-
-h1 {
-    color: #03e9f4;
-    text-decoration: none;
-    transition: 0.5s;
-    letter-spacing: 2px;
-    overflow: hidden;
-    margin-right: 50px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: bold;
-    transform: scale(0.9);
-}
-
-h2 {
-    color: #03e9f4;
-}
-
