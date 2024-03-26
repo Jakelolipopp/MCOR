@@ -345,10 +345,11 @@ function showUpload(){
     if (setUHidden) {
         visibility = 'hidden';
     }
+    exists = document.getElementById("permaupload")
 	document.getElementById("upload").style.visibility = visibility;
-	document.getElementById("permaupload").style.visibility = visibility;
+    if (exists) document.getElementById("permaupload").style.visibility = visibility;
     document.getElementById("upload").hidden = setUHidden;
-    document.getElementById("permaupload").hidden = setUHidden;
+    if (exists) document.getElementById("permaupload").hidden = setUHidden;
 }
 
 
