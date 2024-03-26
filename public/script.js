@@ -61,9 +61,14 @@ function handle(data) {
 			username = "";
 			alert("oke");
             document.getElementById("msgbuttons").hidden = false;
-            document.getElementById("permaupload").hidden = false;
-            document.getElementById("permaupload").style.visibility = 'visible';
-            document.getElementById("permaupload").style.height = 'auto';
+            document.getElementById("upload").innerHTML += `
+            <div class="button" style="margin-left: 0px;display: inline-block" id="permaupload" onclick='switchUpload();'>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div id="permauptext">Switch to permanent upload</div>
+            </div>`;
         break;
         
 		case "fst":
