@@ -62,6 +62,7 @@ function handle(data) {
 			alert("oke");
             document.getElementById("msgbuttons").hidden = false;
             document.getElementById("permaupload").hidden = false;
+            document.getElementById("permaupload").style.visibility = 'visible';
         break;
         
 		case "fst":
