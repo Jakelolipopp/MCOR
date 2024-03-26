@@ -60,17 +60,20 @@ function handle(data) {
 			pass = sha256(sha256(pass + username) + rand);
 			username = "";
 			alert("oke");
-            document.getElementById("msgbuttons").hidden = false;
-            document.getElementById("upload").outerHTML += `
-            <div class="button" style="margin-left: 0px;display: inline-block" id="permaupload" onclick='switchUpload();'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <div id="permauptext">Switch to permanent upload</div>
-            </div>`;
-            document.getElementById("permaupload").style.visibility = setUHidden ? 'hidden' : 'visible';
-            document.getElementById("permaupload").hidden = setUHidden;
+            if (!shown) {
+                document.getElementById("msgbuttons").hidden = false;
+                document.getElementById("upload").outerHTML += `
+                <div class="button" style="margin-left: 0px;display: inline-block" id="permaupload" onclick='switchUpload();'>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <div id="permauptext">Switch to permanent upload</div>
+                </div>`;
+                document.getElementById("permaupload").style.visibility = setUHidden ? 'hidden' : 'visible';
+                document.getElementById("permaupload").hidden = setUHidden;
+            }
+            shown = true;
         break;
         
 		case "fst":
@@ -96,6 +99,7 @@ var setUHidden = true;
 var chatcount = 0;
 var iframe;
 var frameLoaded = false;
+var shown = false;
 
 send("ping");
 
