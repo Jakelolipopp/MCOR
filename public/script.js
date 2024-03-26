@@ -62,13 +62,15 @@ function handle(data) {
 			alert("oke");
             document.getElementById("msgbuttons").hidden = false;
             document.getElementById("upload").outerHTML += `
-            <div class="button" style="margin-left: 0px;display: inline-block; visibility: hidden" id="permaupload" onclick='switchUpload();' hidden = true>
+            <div class="button" style="margin-left: 0px;display: inline-block" id="permaupload" onclick='switchUpload();'>
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
                 <div id="permauptext">Switch to permanent upload</div>
             </div>`;
+            document.getElementById("permaupload").style.visibility = setUHidden ? 'hidden' : 'visible';
+            document.getElementById("permaupload").hidden = setUHidden;
         break;
         
 		case "fst":
