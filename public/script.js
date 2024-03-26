@@ -345,6 +345,8 @@ function showUpload(){
     }
 	document.getElementById("upload").style.visibility = visibility;
     document.getElementById("upload").hidden = setUHidden;
+	document.getElementById("permaupload").style.visibility = visibility;
+    document.getElementById("permaupload").hidden = setUHidden;
 }
 
 
