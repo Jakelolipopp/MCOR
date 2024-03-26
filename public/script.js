@@ -61,7 +61,7 @@ function handle(data) {
 			username = "";
 			alert("oke");
             document.getElementById("msgbuttons").hidden = false;
-            document.getElementById("upload-form").innerHTML += `
+            document.getElementById("upload").outerHTML += `
             <div class="button" style="margin-left: 0px;display: inline-block" id="permaupload" onclick='switchUpload();'>
                 <span></span>
                 <span></span>
