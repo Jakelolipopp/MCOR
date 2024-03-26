@@ -23,6 +23,19 @@ function time() {
     return date;
 }
 
+var perma = false;
+
+function switchUpload() {
+    perma = !perma;
+    visibility = 'visible'
+    if (perma) {
+        visibility = 'hidden'
+    }
+    document.getElementById("upload-form").action = perma ? '/sendup' : '/sendup-tmp';
+    document.getElementById("uploadbutton").value = perma ? 'Upload permanent' : 'Upload temporarily';
+    document.getElementById("permauptext").innerText = perma ? "Switch to temporary upload" : "Switch to permanent upload";
+}
+
 function handle(data) {
     if(frameLoaded) resizeIframe(iframe);
     switch (data.data) {
@@ -48,6 +61,7 @@ function handle(data) {
 			username = "";
 			alert("oke");
             document.getElementById("msgbuttons").hidden = false;
+            document.getElementById("permaupload").hidden = false;
         break;
         
 		case "fst":

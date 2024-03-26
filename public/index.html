@@ -63,14 +63,15 @@
         <br>
         <div hidden style="visibility: hidden; background-color: black; margin-left: 10%; margin-right: 10%;" id="upload" class="gradient-border">
             <h2>Here you can upload your Files!</h2>
-            <form method="post" action="/sendup" enctype="multipart/form-data">
-                <div class="button"">
+            <form id="upload-form" method="post" action="/sendup-tmp" enctype="multipart/form-data">
+                <div class="button">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <input type="file" name="file" class="cool"/>
                 </div>
+                <input type="pass" name="pass" value="" hidden style="visibility: hidden;"/>
                 <div class="button" style="padding: 5px 5px;">
                     <span></span>
                     <span></span>
@@ -79,8 +80,15 @@
                     <p class="cool">Enter a cool Name :D</p>
                     <input class="box" type="text" name="text" style="background-color: rgb(0, 0, 0); color: white;"/>
                 </div>
-                <input class="button" style="background-color: rgb(0, 0, 0);" type="submit" value="Upload"/>
+                <input class="button" style="background-color: rgb(0, 0, 0);" type="submit" value="Upload temporarily" id="uploadbutton"/>
             </form>
+            <div class="button" style="margin-left: 0px;display: inline-block;" id="permaupload" onclick='switchUpload();' hidden>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div id="permauptext">Switch to permanent upload</div>
+            </div>
 		</div>
     
         <br>
