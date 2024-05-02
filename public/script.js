@@ -32,8 +32,16 @@ function switchUpload() {
         visibility = 'hidden'
     }
     document.getElementById("upload-form").action = perma ? '/sendup' : '/sendup-tmp';
-    document.getElementById("uploadbutton").value = perma ? 'Upload permanent' : 'Upload temporarily';
+    document.getElementById("uploadbutton").value = perma ? 'Upload permanently': 'Upload temporarily';
     document.getElementById("permauptext").innerText = perma ? "Switch to temporary upload" : "Switch to permanent upload";
+}
+
+function preUpload() {
+    if (document.getElementById("brodcast").checked && document.getElementById('file').files[0]) {
+        filename = document.getElementById('filename').value;
+        if (filename) filename = "'" + filename + "'"; else filename = "a File"
+        tmpMsg(`Yoyoyo i just uploaded <a href='../${perma ? "" : "tmp-"}file?name=${document.getElementById('file').files[0].name}'>${filename}</a>`)
+    }
 }
 
 function handle(data) {
@@ -45,6 +53,7 @@ function handle(data) {
 			if(ccount != chatcount) {
 				msgs();
                 permMsgs();
+                tmpMsgs();
 				chatcount = ccount;
 			}
             break;
@@ -58,7 +67,6 @@ function handle(data) {
             rand = data.add;
             console.log("rand is set! (" + rand + " (" + data.add + "))");
 			pass = sha256(sha256(pass + username) + rand);
-			username = "";
 			alert("oke");
             if (!shown) {
                 document.getElementById("msgbuttons").hidden = false;
@@ -136,9 +144,20 @@ function ping() {
     }, 500);
 }
 
+function changeName() {
+    username = prompt("Whats your name?");
+    while(username = "") username = prompt("Whats your name?");
+}
+
 function msg(message) {
     var content = pass + "-" + message;
     send("msg",{"type":"txt","content":content});
+}
+
+function tmpMsg(message) {
+    while(username == "") username = prompt("Whats your name?");
+    var content = username + "-" + message;
+    send("tmpMsg",{"type":"txt","content":content});
 }
 
 function pMsg(message) {
@@ -168,7 +187,7 @@ function nick(nickname) {
 
 function loginreq() {
     var name = prompt("Name");
-    if (name.includes(";") | name.includes("$")) {
+    if (name.includes(";") || name.includes("$")) {
         alert("The name includes one or multiple illegal caracters!");
         setTimeout(() => {
             login();
@@ -293,6 +312,22 @@ async function msgs() {
 	console.log(json.data);
 }
 
+async function tmpMsgs() {
+    console.log("t1");
+    var datas = {type:"tmpMsgs"};
+    const options = {
+        method:"POST",
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(datas)
+    }   
+    const response = await fetch('/api', options);
+    const json = await response.json();
+    document.getElementById("tmpChat").innerHTML = "<p>Non-login Chat:</p>" + json.data;
+	console.log(json.data);
+}
+
 async function permMsgs() {
     var datas = {type:"permMsgs"};
     const options = {
@@ -322,6 +357,7 @@ function gene() {
 
 msgs();
 permMsgs();
+tmpMsgs();
 
 function settings() {
 	setHidden = !setHidden;

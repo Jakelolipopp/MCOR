@@ -15,31 +15,31 @@
         <br>
         <div style="align-content: center;">
             <div class="button" style="display: inline-block;" onclick="loginreq();">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Login
             </div>
             <div class="button" style="display: inline-block;" onclick="settings();">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Settings
             </div>
             <div class="button" style="display: inline-block;" onclick="showUpload();">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Upload
             </div>
             <div class="button" style="display: inline-block;" onclick="more();">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 More Stuff
             </div>
         </div>
@@ -52,10 +52,10 @@
         <div hidden style="visibility: hidden; margin-left: 45px; width: fit-content;" id="more" class="gradient-border">
             <p>More stuff:</p>
             <div class="button" onclick="gene();" style="width: fit-content;">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Account String Generator
             </div>
 
@@ -65,79 +65,100 @@
             <h2>Here you can upload your Files!</h2>
             <form id="upload-form" method="post" action="/sendup-tmp" enctype="multipart/form-data">
                 <div class="button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <input type="file" name="file" class="cool"/>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <input type="file" name="file" class="cool" id="file"/>
                 </div>
                 <input type="pass" name="pass" value="" hidden style="visibility: hidden;"/>
                 <div class="button" style="padding: 5px 5px;">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
                     <p class="cool">Enter a cool Name :D</p>
-                    <input class="box" type="text" name="text" style="background-color: rgb(0, 0, 0); color: white;"/>
+                    <input class="box" type="text" name="text" id="filename" style="background-color: rgb(0, 0, 0); color: white;"/>
                 </div>
-                <input class="button" style="background-color: rgb(0, 0, 0);" type="submit" value="Upload temporarily" id="uploadbutton"/>
+                <div class="button">
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span class='anim'></span>
+                    <span>brodcast to tmp-chat: </span><input type="checkbox" name="brodcast" id="brodcast" checked>
+                </div>
+                <input class="button" style="background-color: rgb(0, 0, 0);" type="submit" value="Upload temporarily" id="uploadbutton" onclick="preUpload()"/>
             </form>
 		</div>
     
         <br>
+        <div class="button" style="margin-left: 0px;display: inline-block;" onclick='tmpMsg(prompt("message"));'>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            Send a message to non-login chat
+        </div>
         <div id="msgbuttons" hidden>
             <div class="button" style="margin-left: 0px;display: inline-block;" onclick='msg(prompt("message"));'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Send a message
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                Send a message to normal chat
             </div>
             <!-- test
             <div class="button" style="margin-left: 0px;display: inline-block;" onclick='pMsg(prompt("message"));' hidden>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Send a permanent message
             </div>
             -->
             <div class="button" style="display: inline-block;" onclick='image(prompt("Image link"));'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Send a Image
             </div>
             <div class="button" style="display: inline-block;;" onclick='video(prompt("Video link"));'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Send a Video
             </div>
             <div class="button" style="display: inline-block;" onclick='iframe(prompt("Website link"));'>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
+                <span class='anim'></span>
                 Send a iframe
             </div>
         </div>
         <div class="button chatbox" style="display: inline-block; margin: 25px; min-height: 4em; min-width: 6em;">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
             <p id="chat">Loading Chat...</p>
+        </div>
+        <div class="button chatbox" style="display: inline-block; margin: 25px; min-height: 4em; min-width: 6em;">
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <p id="tmpChat">Loading non-login Chat...</p>
         </div>
 
         <!-- 
-        <div class="button chatbox" style="display: inline-block; margin: 25px;">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="button chatbox" style="display: inline-block; margin: 25px; min-height: 4em; min-width: 6em;">
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
+            <span class='anim'></span>
             <p id="permChat">Loading permanent Chat...</p>
         </div>
         -->
