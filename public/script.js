@@ -40,7 +40,8 @@ function preUpload() {
     if (document.getElementById("brodcast").checked && document.getElementById('file').files[0]) {
         filename = document.getElementById('filename').value;
         if (filename) filename = "'" + filename + "'"; else filename = "a File"
-        tmpMsg(`Yoyoyo i just uploaded <a href='../${perma ? "" : "tmp-"}file?name=${document.getElementById('file').files[0].name}'>${filename}</a>`)
+        tmpMsg(`Yoyoyo i just uploaded <a href='../${perma ? "" : "tmp-"}file?name=${document.getElementById('file').files[0].name}'>${filename}</a>`);
+        alert('Nice!');
     }
 }
 

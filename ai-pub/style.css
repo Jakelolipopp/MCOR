@@ -77,11 +77,11 @@ p {
 .button:hover {
     border: 1px solid transparent;
 }
-.button:hover span {
+.button:hover .anim {
     position: absolute;
     display: block;
 }
-.button:hover span:nth-child(1) {
+.button:hover .anim:nth-child(1) {
     filter: hue-rotate(0deg);
     top: 0;
     left: 0;
@@ -98,7 +98,7 @@ p {
         left: 100%;
    }
 }
-.button:hover span:nth-child(2) {
+.button:hover .anim:nth-child(2) {
     filter: hue-rotate(60deg);
     top: -100%;
     right: 0;
@@ -116,7 +116,7 @@ p {
         top: 100%;
    }
 }
-.button:hover span:nth-child(3) {
+.button:hover .anim:nth-child(3) {
     filter: hue-rotate(120deg);
     bottom: 0;
     right: 0;
@@ -135,7 +135,7 @@ p {
         right: 100%;
    }
 }
-.button:hover span:nth-child(4) {
+.button:hover .anim:nth-child(4) {
     filter: hue-rotate(300deg);
     bottom: -100%;
     left: 0;
