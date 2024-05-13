@@ -21,9 +21,21 @@ function handle(res) {
             history[history.length] = {"role":"model", "content":res.data};
             renderBotMsg(res.data);
             break;
+        
+        case "done":
+            rerenderChatbox();
+            alert('Done!');
 
         default:
             break;
+    }
+}
+
+
+function resetChat() {
+    if(confirm('Are you sure you want to reset the current chat? This can not be undone.')) {
+        history = [];
+        send({action: "delChat", name:uname});
     }
 }
 
@@ -85,9 +97,6 @@ async function send(data) {
     const json = await response.json();
     handle(json);
 }
-
-
-
 
 function sha256(ascii) {
 	function rightRotate(value, amount) {
