@@ -44,9 +44,16 @@ body {
     color: #03e9f4;
 }
 
-p {
-    color: #03e9f4; 
+.message {
     font: 1em sans-serif;
+}
+
+.bot {
+    color: #25a867; 
+}
+
+.user {
+    color: #03e9f4; 
 }
 
 .box {

@@ -1,5 +1,3 @@
-//GEMINI KEY: AIzaSyDmO95vHsyIKC6Wk7sNbJD8t4UZeKhc_Hc
-
 let uname = sha256(prompt('Whats your name?'));
 
 send({action: "getChat", name: uname});
@@ -11,6 +9,7 @@ function handle(res) {
     switch (res.type) {
         case "history":
             history = JSON.parse(res.data).history;
+            rerenderChatbox();
             break;
         
         case "newMsg":
@@ -20,12 +19,41 @@ function handle(res) {
                 break;
             }
             history[history.length] = {"role":"model", "content":res.data};
+            renderBotMsg(res.data);
             break;
 
         default:
             break;
     }
 }
+
+function rerenderChatbox() {
+    const chatBox = document.getElementById('chat-box');
+    chatBox.innerHTML = "";
+    history.forEach(element => {
+        const messageElement = document.createElement('p');
+        messageElement.textContent = element.content;
+        if (element.role == "model") {
+            messageElement.classList.add('bot');
+        } else {
+            messageElement.classList.add('user');
+        }
+        messageElement.classList.add('message');
+        chatBox.appendChild(messageElement);
+    });
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+}
+
+function renderBotMsg(text) {
+    const chatBox = document.getElementById('chat-box');
+    const messageElement = document.createElement('p');
+    messageElement.textContent = text;
+    messageElement.classList.add('bot');
+    messageElement.classList.add('message');
+    chatBox.appendChild(messageElement);
+    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+}
+
 
 document.getElementById('send-btn').addEventListener('click', function() {
     const input = document.getElementById('message-input');
@@ -35,9 +63,11 @@ document.getElementById('send-btn').addEventListener('click', function() {
         const chatBox = document.getElementById('chat-box');
         const messageElement = document.createElement('p');
         messageElement.textContent = message;
+        messageElement.classList.add('user');
         messageElement.classList.add('message');
         chatBox.appendChild(messageElement);
-        
+        history[history.length] = {"role":"user", "content":input.value};
+        send({action: "msg", name: uname, messages:history});
         input.value = ''; // Clear input field
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
     }
