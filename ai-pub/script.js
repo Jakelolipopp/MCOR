@@ -20,6 +20,7 @@ function handle(res) {
             }
             history[history.length] = {"role":"model", "content":res.data};
             renderBotMsg(res.data);
+            unselectSend();
             break;
         
         case "done":
@@ -66,8 +67,11 @@ function renderBotMsg(text) {
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
 }
 
+function unselectSend() {
+    var element = document.getElementById('send-btn'); var clone = element.cloneNode(true); element.parentNode.replaceChild(clone, element);
+}
 
-document.getElementById('send-btn').addEventListener('click', function() {
+function btnclck() {
     const input = document.getElementById('message-input');
     const message = input.value.trim();
 
@@ -83,7 +87,7 @@ document.getElementById('send-btn').addEventListener('click', function() {
         input.value = ''; // Clear input field
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
     }
-});
+};
 
 async function send(data) {
     const options = {
