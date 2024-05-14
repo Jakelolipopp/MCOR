@@ -1,74 +1,43 @@
-let uname = sha256(prompt('Whats your name?'));
+let roomname = sha256(prompt('Whats the room name?'));
 
-send({action: "getChat", name: uname});
+send({action: "getChat", name: roomname});
 
-let history = [];
+let chat;
+let chatcount = -1;
 
 function handle(res) {
     console.log("Got res of type " + res.type + "! :D");
     switch (res.type) {
-        case "history":
-            history = JSON.parse(res.data).history;
-            rerenderChatbox();
-            break;
+        case "chat":
+          chat = JSON.parse(res.data);
+          rerenderChatbox();
         
-        case "newMsg":
-            if(res.failed) {
-                history.pop(); 
-                alert("Something didn't work correctly - removing last message.");
-                break;
+        case "chatcount":
+          if (!data.fail) {
+            if(data.chatcount != chatcount) {
+              chatcount = data.chatcount;
+              send({action: "getChat", name: roomname});
             }
-            history[history.length] = {"role":"model", "content":res.data};
-            renderBotMsg(res.data);
-            unselectSend();
-            break;
-        
-        case "done":
-            rerenderChatbox();
-            alert('Done!');
-
+            send({action: "chatCount"});
+          }
         default:
             break;
     }
 }
 
 
-function resetChat() {
-    if(confirm('Are you sure you want to reset the current chat? This can not be undone.')) {
-        history = [];
-        send({action: "delChat", name:uname});
-    }
-}
 
 function rerenderChatbox() {
     const chatBox = document.getElementById('chat-box');
     chatBox.innerHTML = "";
     history.forEach(element => {
         const messageElement = document.createElement('p');
-        messageElement.textContent = element.content;
-        if (element.role == "model") {
-            messageElement.classList.add('bot');
-        } else {
-            messageElement.classList.add('user');
-        }
+        messageElement.textContent = element.name + ": " + element.content;
+        messageElement.classList.add('user');
         messageElement.classList.add('message');
         chatBox.appendChild(messageElement);
     });
     chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
-}
-
-function renderBotMsg(text) {
-    const chatBox = document.getElementById('chat-box');
-    const messageElement = document.createElement('p');
-    messageElement.textContent = text;
-    messageElement.classList.add('bot');
-    messageElement.classList.add('message');
-    chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
-}
-
-function unselectSend() {
-    var element = document.getElementById('send-btn'); var clone = element.cloneNode(true); element.parentNode.replaceChild(clone, element);
 }
 
 function btnclck() {
