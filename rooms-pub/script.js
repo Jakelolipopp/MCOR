@@ -6,7 +6,7 @@ let chat;
 let chatcount = -1;
 
 function handle(res) {
-    console.log("Got res of type " + res.type + "! :D");
+    log("Got res of type " + res.type + "! :D");
     switch (res.type) {
         case "chat":
           chat = JSON.parse(res.data);
@@ -149,4 +149,8 @@ function sha256(ascii) {
 		}
 	}
 	return result;
+}
+
+function log(text) {
+  document.getElementById("console").innerText+= text;
 }
