@@ -66,7 +66,7 @@ async function send(data) {
         },
         body:JSON.stringify(data)
     }   
-    const response = await fetch('/ai', options);
+    const response = await fetch('/roomsapi', options);
     const json = await response.json();
     handle(json);
 }
