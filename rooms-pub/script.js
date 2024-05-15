@@ -1,7 +1,7 @@
 let roomname = sha256(prompt('Whats the room name?'));
 
 send({action: "getChat", name: roomname});
-log("Sent getChat req.")
+log("Sent getChat req.");
 send({action: "chatcount", name: roomname});
 log("Sent chatcount");
 let chat;
@@ -47,6 +47,7 @@ function btnclck() {
     const message = input.value.trim();
 
     if (message) {
+        log("Sendin msg: " + message);
         send({action: "msg", uname: uname, name:roomname, message:message});
         input.value = ''; // Clear input field
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
@@ -147,5 +148,5 @@ function sha256(ascii) {
 }
 
 function log(text) {
-  document.getElementById("console").innerText+= "\n" + text;
+  document.getElementById("console").innerText += "\n" + text;
 }
