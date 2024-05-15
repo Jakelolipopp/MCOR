@@ -47,14 +47,7 @@ function btnclck() {
     const message = input.value.trim();
 
     if (message) {
-        const chatBox = document.getElementById('chat-box');
-        const messageElement = document.createElement('p');
-        messageElement.textContent = message;
-        messageElement.classList.add('user');
-        messageElement.classList.add('message');
-        chatBox.appendChild(messageElement);
-        history[history.length] = {"role":"user", "content":input.value};
-        send({action: "msg", name: uname});
+        send({action: "msg", uname: uname, name:roomname, message:message});
         input.value = ''; // Clear input field
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
     }
