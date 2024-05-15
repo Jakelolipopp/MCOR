@@ -13,6 +13,7 @@ function handle(res) {
         case "chat":
           chat = JSON.parse(res.data);
           rerenderChatbox();
+          break;
         
         case "chatcount":
           if (!data.fail) {
@@ -22,6 +23,7 @@ function handle(res) {
             }
             send({action: "chatCount"});
           }
+          break;
         default:
             break;
     }
