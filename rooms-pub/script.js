@@ -2,8 +2,6 @@ let roomname = sha256(prompt('Whats the room name?'));
 
 send({action: "getChat", name: roomname});
 log("Sent getChat req.");
-send({action: "chatCount", name: roomname});
-log("Sent chatcount");
 let chat;
 let chatcount = -1;
 
@@ -13,6 +11,8 @@ function handle(res) {
         case "chat":
           chat = JSON.parse(res.data);
           rerenderChatbox();
+          send({action: "chatCount", name: roomname});
+          log("Sent chatcount");
           break;
         
         case "chatcount":
@@ -21,7 +21,8 @@ function handle(res) {
               chatcount = data.chatcount;
               send({action: "getChat", name: roomname});
             }
-            send({action: "chatCount"});
+    
+            send({action: "chatCount", name: roomname});
           }
           break;
         default:
