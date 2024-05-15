@@ -2,6 +2,7 @@ let chat;
 let chatcount = -1;
 
 let roomname = sha256(prompt('Whats the room name?'));
+let uname = prompt("Whats your name?");
 
 send({action: "getChat", name: roomname});
 log("Sent getChat req.");
