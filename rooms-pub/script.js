@@ -3,7 +3,7 @@ let roomname = sha256(prompt('Whats the room name?'));
 send({action: "getChat", name: roomname});
 log("Sent getChat req.")
 send({action: "chatcount", name: roomname});
-log("")
+log("Sent chatcount");
 let chat;
 let chatcount = -1;
 
@@ -54,7 +54,7 @@ function btnclck() {
         messageElement.classList.add('message');
         chatBox.appendChild(messageElement);
         history[history.length] = {"role":"user", "content":input.value};
-        send({action: "msg", name: uname, messages:history});
+        send({action: "msg", name: uname});
         input.value = ''; // Clear input field
         chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
     }
