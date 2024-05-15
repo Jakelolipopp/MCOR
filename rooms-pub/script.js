@@ -1,7 +1,7 @@
 let roomname = sha256(prompt('Whats the room name?'));
 
 send({action: "getChat", name: roomname});
-
+log("Sent getChat req.")
 let chat;
 let chatcount = -1;
 
@@ -152,5 +152,5 @@ function sha256(ascii) {
 }
 
 function log(text) {
-  document.getElementById("console").innerText+= text;
+  document.getElementById("console").innerText+= "\n" + text;
 }
