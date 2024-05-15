@@ -1,9 +1,10 @@
+let chat;
+let chatcount = -1;
+
 let roomname = sha256(prompt('Whats the room name?'));
 
 send({action: "getChat", name: roomname});
 log("Sent getChat req.");
-let chat;
-let chatcount = -1;
 
 function handle(res) {
     log("Got res of type " + res.type + "! :D");
