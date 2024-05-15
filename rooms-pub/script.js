@@ -11,6 +11,7 @@ function handle(res) {
         case "chat":
           chat = JSON.parse(res.data);
           rerenderChatbox();
+          log("Loaded chat!");
           send({action: "chatCount", name: roomname});
           log("Sent chatcount");
           break;
