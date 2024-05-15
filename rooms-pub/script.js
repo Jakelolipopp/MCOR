@@ -41,7 +41,7 @@ function handle(res) {
 function rerenderChatbox() {
     const chatBox = document.getElementById('chat-box');
     chatBox.innerHTML = "";
-    history.forEach(element => {
+    chat.forEach(element => {
         const messageElement = document.createElement('p');
         messageElement.textContent = element.name + ": " + element.content;
         messageElement.classList.add('user');
