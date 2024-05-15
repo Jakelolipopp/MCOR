@@ -8,6 +8,10 @@ let chatcount = -1;
 function handle(res) {
     log("Got res of type " + res.type + "! :D");
     switch (res.type) {
+        case "fuck":
+          alert("shit");
+        break;
+        
         case "chat":
           chat = JSON.parse(res.data);
           rerenderChatbox();
