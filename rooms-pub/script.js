@@ -30,9 +30,7 @@ function handle(res) {
               	send({action: "getChat", name: roomname});
             } else {
 				log("No counter update: " + res.chatcount);
-				setTimeout(() => {
-					send({action: "chatCount", name: roomname});
-				}, 1000);
+				send({action: "chatCount", name: roomname});
 			}
           } else {
 			log("fail")
