@@ -32,7 +32,7 @@ function handle(res) {
 				log("No counter update");
 				setTimeout(() => {
 					send({action: "chatCount", name: roomname});
-				}, 200);
+				}, 1000);
 			}
           } else {
 			log("fail")
