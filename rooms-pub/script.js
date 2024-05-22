@@ -166,4 +166,5 @@ function sha256(ascii) {
 
 function log(text) {
   document.getElementById("console").innerText += "\n" + text;
+  console.log(text)
 }
