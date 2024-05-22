@@ -17,7 +17,7 @@ function handle(res) {
         case "chat":
           chat = JSON.parse(res.data).chat;
           rerenderChatbox();
-          log("Loaded chat!");
+          log("Got chat!");
           send({action: "chatCount", name: roomname});
           log("Sent chatcount");
           break;
@@ -25,12 +25,16 @@ function handle(res) {
         case "chatcount":
           if (!data.fail) {
             if(data.chatcount != chatcount) {
-              chatcount = data.chatcount;
-              send({action: "getChat", name: roomname});
-            }
-    
-            send({action: "chatCount", name: roomname});
-          }
+				log("Counter update");
+              	hatcount = data.chatcount;
+              	end({action: "getChat", name: roomname});
+            } else {
+				log("No counter update");
+				send({action: "chatCount", name: roomname});
+			}
+          } else {
+			log("fail")
+		  }
           break;
         default:
             break;
