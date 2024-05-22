@@ -61,6 +61,7 @@ function rerenderChatbox() {
 function btnclck() {
     const input = document.getElementById('message-input');
     const message = input.value.trim();
+    const chatBox = document.getElementById('chat-box');
 
     if (message) {
         log("Sendin msg: " + message);
