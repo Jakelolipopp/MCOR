@@ -26,7 +26,7 @@ function handle(res) {
           if (!res.fail) {
             if(res.chatcount != chatcount) {
 				log("Counter update");
-              	hatcount = res.chatcount;
+              	chatcount = res.chatcount;
               	end({action: "getChat", name: roomname});
             } else {
 				log("No counter update");
