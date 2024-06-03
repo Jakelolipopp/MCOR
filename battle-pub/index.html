@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chat with AI</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 style="margin-right: 0.5em;">Epic Battlez</h1>
+        <form id="battle">
+            <label for="char1name">Character 1 Name:</label>
+            <input type="text" id="char1name" name="char1name" required>
+            <br>
+            <label for="char1desc">Character 1 Description:</label>
+            <br>
+            <textarea id="char1desc" name="char1desc" required></textarea>
+            <br>
+            <label for="char2name">Character 2 Name:</label>
+            <input type="text" id="char2name" name="char2name" required>
+            <br>
+            <label for="char2desc">Character 2 Description:</label>
+            <br>
+            <textarea id="char2desc" name="char2desc" required></textarea>
+            <br>
+            <label for="lang">Language(optional):</label>
+            <input type="text" id="lang" name="lang">
+            <br>
+            <button type="submit">Send</button>
+        </form>
+        <div id="response" class="response"></div>
+
+        <script src="script.js">
+            
+        </script>
+    </body>
+</html>
