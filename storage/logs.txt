@@ -8,3 +8,6 @@ hashing...
 a49fad9b37717b03a714931f75edf8859be10458719ba3c4310067cc2de3be5a,5ebcdcc31a0b4a6caa6ee89e3b07d983417ca7a3f510d50f14e78626253150f3
 jake,
 Running at localhost:3000
+{"char1":{"name":"jay","description":" "},"char2":{"name":"jones","description":" "},"language":""}
+The battle language will be the same as langues used for the character descriptions.
+No more data in response.
