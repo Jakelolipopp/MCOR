@@ -119,7 +119,6 @@ var roomcounts = {};
 
 app.post('/roomsapi', (request, response) => {
 	let data = request.body;
-	Jlog("Got action in rooms: " + data.action);
 	try {
 	switch (data.action) {
 		case "getChat":
