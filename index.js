@@ -218,6 +218,7 @@ app.post('/rawai', (request, response) => {
 
 app.post('/ai', (request, response) => {
   Jlog("stdai");
+  Jlog(JSON.stringify(data));
 	let data = request.body;
 	switch (data.action) {
 		case "getChat":
@@ -269,6 +270,7 @@ app.post('/ai', (request, response) => {
 app.post('/ai-sus', (request, response) => {
   Jlog("susai");
   let data = request.body;
+  Jlog(JSON.stringify(data));
   switch (data.action) {
     case "getChat":
       if (fs.existsSync("./chats/" + data.name + ".json")) {
