@@ -16,7 +16,6 @@ const host = 'localhost';
 
 const port = 3000;
 
-Jlog(Math.random());
 
 const upload = require('express-fileupload');
 app.use(upload());
@@ -84,6 +83,8 @@ app.listen(port, host, () =>{
     Jlog("Running at " + host + ":" + port);
 });
 JlogReset();
+
+Jlog(Math.random());
 
 Jlog("1.1.0");
 
