@@ -1028,5 +1028,3 @@ function getOpenrouterChatCompletion(apiKey, model, messages, callback) {
   req.write(data);
   req.end();
 }
-// Usage example:
-const apiKey = ;
