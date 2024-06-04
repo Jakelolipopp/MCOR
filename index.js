@@ -217,6 +217,7 @@ app.post('/rawai', (request, response) => {
 })
 
 app.post('/ai', (request, response) => {
+  Jlog("stdai");
 	let data = request.body;
 	switch (data.action) {
 		case "getChat":
@@ -266,6 +267,7 @@ app.post('/ai', (request, response) => {
 });
 
 app.post('/ai-sus', (request, response) => {
+  Jlog("susai");
   let data = request.body;
   switch (data.action) {
     case "getChat":
