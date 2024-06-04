@@ -98,7 +98,7 @@ async function send(data) {
         body:JSON.stringify(data)
     }   
     let response;
-    if(document.getElementById("sus").value) {
+    if(document.getElementById("sus").value == "true") {
       response = await fetch('/ai-sus', options)
     } else response = await fetch('/ai', options);
     const json = await response.json();
