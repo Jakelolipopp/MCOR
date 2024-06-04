@@ -70,6 +70,10 @@ app.post('/sendup-tmp/', (req, res) => {
     });
 });
 
+app.get('/resetlog', (req, res) => {
+  JlogReset();
+  res.send("Done");
+});
 
 app.use(express.static('public'));
 app.use(express.json());
