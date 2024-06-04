@@ -949,6 +949,7 @@ function getChatCompletion(apiKey, messages, res) {
 
 
   function getOpenrouterChatCompletion(apiKey, model, messages, callback) {
+    Jlog('Getting openrouter completion');
 	const data = JSON.stringify({
 	  model: model,
 	  provider: {
@@ -986,6 +987,7 @@ function getChatCompletion(apiKey, messages, res) {
 	req.on('error', (error) => {
 	  callback(error, null);
 	});
+    Jlog('Got openrouter completion');
   
 	req.write(data);
 	req.end();
