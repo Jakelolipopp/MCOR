@@ -16,6 +16,8 @@ const host = 'localhost';
 
 const port = 3000;
 
+Jlog(Math.random());
+
 const upload = require('express-fileupload');
 app.use(upload());
 
