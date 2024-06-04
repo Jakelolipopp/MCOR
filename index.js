@@ -232,7 +232,7 @@ app.post('/jb-ai', (request, response) => {
 	messages = messages.concat(data.messages);
 	Jlog(JSON.stringify(messages));
 	try {
-  	getChatCompletion(apiKey, model, messages, (error, responseContent) => {
+  	getOpenouterChatCompletion(apiKey, model, messages, (error, responseContent) => {
   	if (error) {
   		Jlog('Error:', error);
   	} else {
