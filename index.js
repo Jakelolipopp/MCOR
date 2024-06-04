@@ -82,12 +82,9 @@ app.use('/unlocked', express.static('sus-pub'));
 app.listen(port, host, () =>{
     Jlog("Running at " + host + ":" + port);
 });
-JlogReset();
+//JlogReset();
 
 Jlog(Math.random());
-
-Jlog("1.1.0");
-
 
 Jlog('loading text...');
 var chat = "";//fs.readFileSync("storage/chat.txt", "utf8");
