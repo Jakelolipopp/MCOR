@@ -1,7 +1,7 @@
 function handle(res) {
+    console.log(res);
     document.getElementById('chat-box').innerText = res.content;
     unselectSend();
-        
 }
 
 function btnclck() {
