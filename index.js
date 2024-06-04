@@ -190,7 +190,7 @@ app.post('/battles', (req, res) => {
 		{ role: 'user', content: "GO!" },
 	];
 	res.setHeader('Content-Type', 'text/plain');
-	getChatCompletion(apiKey, messages, res);
+	getOpenaiChatCompletion(apiKey, messages, res);
   });
 
 app.post('/rawai', (request, response) => {
@@ -861,7 +861,7 @@ function googleFormatter(inputs) {
 
 
 
-function getChatCompletion(apiKey, messages, res) {
+function getOpenaiChatCompletion(apiKey, messages, res) {
 	const data = JSON.stringify({
 	  model: "gpt-3.5-turbo",
 	  messages: messages,
