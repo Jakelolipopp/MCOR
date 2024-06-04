@@ -5,6 +5,7 @@ function handle(res) {
 }
 
 function btnclck() {
+    document.getElementById('chat-box').innerText = "Cooking... (hopefully)";
     send({messages: [{"role":"user", "content":document.getElementById('message-input').value}]});
     document.getElementById('message-input').value = '';
 }
