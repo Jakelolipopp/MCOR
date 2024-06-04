@@ -190,7 +190,7 @@ app.post('/battles', (req, res) => {
 		{ role: 'user', content: "GO!" },
 	];
 	res.setHeader('Content-Type', 'text/plain');
-	getOpenaiChatCompletion(apiKey, messages, res);
+	getChatCompletion(apiKey, messages, res);
   });
 
 app.post('/rawai', (request, response) => {
@@ -217,8 +217,6 @@ app.post('/rawai', (request, response) => {
 })
 
 app.post('/ai', (request, response) => {
-  Jlog("stdai");
-  Jlog(JSON.stringify(data));
 	let data = request.body;
 	switch (data.action) {
 		case "getChat":
@@ -266,58 +264,6 @@ app.post('/ai', (request, response) => {
 
 	}
 });
-
-app.post('/ai-sus', (request, response) => {
-  Jlog("susai");
-  let data = request.body;
-  Jlog(JSON.stringify(data));
-  switch (data.action) {
-    case "getChat":
-      if (fs.existsSync("./chats/" + data.name + ".json")) {
-        response.json(
-          { type: "history", data: fs.readFileSync("./chats/" + data.name + ".json", "utf8") }
-        );
-      } else {
-        response.json(
-          { type: "history", data: '{"history":[]}' }
-        );
-      }
-      break;
-
-    case "msg":
-      let messages = data.messages;
-      for (let i = 0; i < messages.length; i++) {
-        messages[i].content = convTxt(messages[i].content);
-      }
-      let formatted = openaiFormatter(messages);
-      const model = 'cognitivecomputations/dolphin-mixtral-8x7b';
-      const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-      getOpenrouterChatCompletion(OPENROUTER_API_KEY, model, formatted, (error, resContent) => {
-        let text = "Failed to generate text";
-        let failed = true;
-        if (!error) {
-          failed = false;
-          text = resContent;
-          messages.push({ "role": "assistant", "content": text });
-          fs.writeFileSync("./chats/" + data.name + ".json", JSON.stringify({ history: messages }));
-        }
-        response.json(
-          { type: "newMsg", data: text, failed: failed }
-        );
-      });
-      break;
-
-    case "delChat":
-      fs.writeFileSync("./chats/" + data.name + ".json", '{"history":[]}');
-      response.json(
-        { type: "done" }
-      );
-      break;
-  }
-});
-
-
-
 
 app.post('/api', (request, response) => {
 
@@ -906,15 +852,6 @@ function googleFormatter(inputs) {
 	});
 	return contents;
 }
-function openaiFormatter(inputs) {
-	let contents = [];
-	inputs.forEach(element => {
-	  let role = element["role"];
-	  if(openAIHistFormat[role]) role = openAIHistFormat[role];
-		contents[contents.length] = {"role":role, "parts":[{"text":element["content"]}]};
-	});
-	return contents;
-}
 
 
 
@@ -924,7 +861,7 @@ function openaiFormatter(inputs) {
 
 
 
-function getOpenaiChatCompletion(apiKey, messages, res) {
+function getChatCompletion(apiKey, messages, res) {
 	const data = JSON.stringify({
 	  model: "gpt-3.5-turbo",
 	  messages: messages,
@@ -988,47 +925,3 @@ function getOpenaiChatCompletion(apiKey, messages, res) {
 	req.end();
   }
   
-const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-
-function getOpenrouterChatCompletion(apiKey, model, messages, callback) {
-  const data = JSON.stringify({
-    model: model,
-    provider: {
-      order: ["DeepInfra"]
-    },
-    messages: messages
-  });
-
-  const options = {
-    hostname: 'openrouter.ai',
-    port: 443,
-    path: '/api/v1/chat/completions',
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-      'Content-Length': data.length
-    }
-  };
-
-  const req = https.request(options, (res) => {
-    let responseData = '';
-
-    res.on('data', (chunk) => {
-      responseData += chunk;
-    });
-
-    res.on('end', () => {
-      const responseJson = JSON.parse(responseData);
-      const resContent = responseJson.choices[0].message.content;
-      callback(null, resContent);
-    });
-  });
-
-  req.on('error', (error) => {
-    callback(error, null);
-  });
-
-  req.write(data);
-  req.end();
-}
