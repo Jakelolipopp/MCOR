@@ -987,7 +987,7 @@ function getChatCompletion(apiKey, messages, res) {
   
 	  res.on('end', () => {
 		const responseJson = JSON.parse(responseData);
-		const resContent = responseJson.choices[0].message.content;
+		const resContent = responseJson;
 		callback(null, resContent);
 	  });
 	});
