@@ -1,19 +1,22 @@
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            hiii
-        </title>
-		<link rel="stylesheet" href="style.css">
-        <script src="script.js">  
-        </script>
-    </head>
-    <body id="bg">
-        <h2>Here you can upload your Files!</h2>
-        <form id="upload" method="post" action="/docFlow/upload/" enctype="multipart/form-data">
-            <input type="file" name="file" class="cool" id="file"/>
-            <input class="button" type="submit" value="Upload" id="uploadbutton"/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>PDF Upload and View</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload PDF</h1>
+        <form id="uploadForm">
+            <input type="file" name="pdf" id="pdf" accept="application/pdf">
+            <button type="submit">Upload</button>
         </form>
-    </body>
+        <h2>Your Files</h2>
+        <ul id="fileList"></ul>
+        <button id="logout">Logout</button>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>
