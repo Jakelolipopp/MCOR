@@ -15,10 +15,10 @@ app.post('/upload/', (req, res) => {
 	var Fname = req.body.text;
 	var filename = file.name;
 	
-    file.mv("docFlow/uploads/" + filename, function (err) {
+    file.mv("/uploads/" + filename, function (err) {
     if (err) {
     } else {
-    	res.send("<body style='background-color: grey;'><p>Ur file " + Fname + " is uploaded! ;D</p><a href=\"../file?name=" + filename + "\">../file?name=" + filename + "</a></body>");
+    	res.send(filename);
     	}
     });
 });
