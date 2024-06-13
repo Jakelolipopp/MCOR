@@ -3,7 +3,7 @@ const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const path = require('path');
 const fs = require('fs');
-const pdf = require('pdf-poppler');
+const PDFImage = require("pdf-image").PDFImage;
 const app = express();
 
 const USERS = JSON.parse(fs.readFileSync('users')); // In-memory user store for simplicity
@@ -61,8 +61,6 @@ app.post('/login', (req, res) => {
     }
 });
 
-
-
 // Register endpoint
 app.post('/register', (req, res) => {
     const { username, password } = req.body;
@@ -106,15 +104,16 @@ app.post('/upload', authMiddleware, async (req, res) => {
             fs.mkdirSync(imgDir);
         }
 
-        const opts = {
-            format: 'jpeg',
-            out_dir: imgDir,
-            out_prefix: path.parse(pdfFile.name).name,
-            page: null
-        };
-
         try {
-            await pdf.convert(uploadPath, opts);
+            const pdfImage = new PDFImage(uploadPath, {
+                outputDirectory: imgDir,
+                convertOptions: {
+                    "-quality": "100",
+                    "-resize": "800x600"
+                }
+            });
+            await pdfImage.convertFile();
+
             USERS[req.session.user].files.push({ user: req.session.user, pdf: pdfFile.name, images: imgDir });
             fs.writeFile('users', JSON.stringify(USERS), (err) => {});
             console.log(`File uploaded and converted: ${pdfFile.name}`);
