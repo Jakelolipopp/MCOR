@@ -4,7 +4,6 @@ const session = require('express-session');
 const path = require('path');
 const fs = require('fs');
 const pdf = require('pdf-poppler');
-const morgan = require('morgan');
 const app = express();
 
 const USERS = JSON.parse(fs.readFileSync('users')); // In-memory user store for simplicity
@@ -13,7 +12,6 @@ app.use(express.static('public'));
 app.use(fileUpload());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(morgan('combined')); // Add request logging
 
 app.use(session({
     secret: 'secret',
