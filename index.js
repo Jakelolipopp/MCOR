@@ -963,9 +963,6 @@ function getChatCompletion(apiKey, messages, res) {
     Jlog('Getting openrouter completion');
 	const data = JSON.stringify({
 	  model: model,
-	  provider: {
-		order: ["DeepInfra"]
-	  },
 	  messages: messages
 	});
   
